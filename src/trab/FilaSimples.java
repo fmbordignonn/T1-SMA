@@ -37,9 +37,10 @@ public class FilaSimples {
         this.temposPorEstado = new ArrayList<>();
         this.quantAleatorios = quantAleatorios;
 
-        this.aleatorios = lcm(0.15165, 1, 5, 5, 100000);
+        this.aleatorios = lcm(0.12345, 1, 5, 5, 100000);
     }
 
+    //Extraido de: https://www.geeksforgeeks.org/java-program-to-implement-the-linear-congruential-generator-for-pseudo-random-number-generation/
     // Function to generate random numbers
     static double[] lcm(double seed, int mod, int multiplier, int inc, int noOfRandomNum) {
         // Initialize the seed state

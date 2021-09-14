@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Iniciando algoritmo fila simples");
 
         System.out.println("Quantos servidores tem a fila?");
-        numeroServidores = 1;//scanner.nextInt();
+        numeroServidores = 2;//scanner.nextInt();
 
         System.out.println("Qual a capacidade da fila (se infinito, digite 0)?");
         capacidadeFila = 5;//scanner.nextInt();
@@ -41,10 +41,8 @@ public class Main {
         System.out.println ("Quantos aleatórios serão executados?");
         quantAleatorios = 100000;//scanner.nextInt();
 
-        FilaSimples filaSimples = new FilaSimples(numeroServidores, capacidadeFila, taxaChegadaMin, taxaChegadaMax,
-                taxaSaidaMin, taxaSaidaMax, tempoPrimeiroCliente, quantAleatorios);
+        FilaSimples filaSimples = new FilaSimples(numeroServidores, capacidadeFila, taxaChegadaMin, taxaChegadaMax, taxaSaidaMin, taxaSaidaMax, tempoPrimeiroCliente, quantAleatorios);
 
         filaSimples.iniciar();
-
     }
 }
