@@ -2,5 +2,6 @@ package trab;
 
 public enum TipoEvento {
     CHEGADA,
-    SAIDA
+    SAIDA,
+    TROCA
 }

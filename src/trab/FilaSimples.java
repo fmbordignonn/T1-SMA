@@ -42,7 +42,7 @@ public class FilaSimples {
 
     //Extraido de: https://www.geeksforgeeks.org/java-program-to-implement-the-linear-congruential-generator-for-pseudo-random-number-generation/
     // Function to generate random numbers
-    static double[] lcm(double seed, int mod, int multiplier, int inc, int noOfRandomNum) {
+    double[] lcm(double seed, int mod, int multiplier, int inc, int noOfRandomNum) {
         // Initialize the seed state
         double[] randomNums = new double[noOfRandomNum];
 
