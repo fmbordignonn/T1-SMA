@@ -80,7 +80,7 @@ public class FilaEmTandem {
         return randomNums;
     }
 
-    public void executar() {
+    public void iniciar() {
         filaEventos.add(new Evento(TipoEvento.CHEGADA, tempoPrimeiroCliente));
         totalEventos++;
 

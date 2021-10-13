@@ -31,28 +31,28 @@ public class Main {
                 System.out.println("Iniciando algoritmo fila simples");
 
                 System.out.println("Quantos servidores tem a fila?");
-                numeroServidores = 2;//scanner.nextInt();
+                numeroServidores = scanner.nextInt();
 
                 System.out.println("Qual a capacidade da fila (se infinito, digite 0)?");
-                capacidadeFila = 5;//scanner.nextInt();
+                capacidadeFila = scanner.nextInt();
 
                 System.out.println("Qual a taxa minima de chegada?");
-                taxaChegadaMin = 2;//scanner.nextDouble();
+                taxaChegadaMin = scanner.nextDouble();
 
                 System.out.println("Qual a taxa maxima de chegada?");
-                taxaChegadaMax = 4;//scanner.nextDouble();
+                taxaChegadaMax = scanner.nextDouble();
 
                 System.out.println("Qual a taxa minima de atendimento?");
-                taxaSaidaMin = 3;//scanner.nextDouble();
+                taxaSaidaMin = scanner.nextDouble();
 
                 System.out.println("Qual a taxa maxima de atendimento?");
-                taxaSaidaMax = 5;//scanner.nextDouble();
+                taxaSaidaMax = scanner.nextDouble();
 
                 System.out.println("Quanto tempo demora para chegar o primeiro cliente?");
-                tempoPrimeiroCliente = 3;//scanner.nextDouble();
+                tempoPrimeiroCliente = scanner.nextDouble();
 
                 System.out.println ("Quantos aleatórios serão executados?");
-                quantAleatorios = 100000;//scanner.nextInt();
+                quantAleatorios = scanner.nextInt();
 
                 FilaSimples filaSimples = new FilaSimples(numeroServidores, capacidadeFila, taxaChegadaMin, taxaChegadaMax, taxaSaidaMin, taxaSaidaMax, tempoPrimeiroCliente, quantAleatorios);
 
@@ -97,9 +97,9 @@ public class Main {
 
                 System.out.println ("Quantos aleatórios serão executados?");
                 quantAleatorios = scanner.nextInt();
-                FilaEmTandem filaEmTandem = new FilaEmTandem(numeroServidoresFila1, capacidadeFila1, taxaChegadaMin, taxaChegadaMax,
-                        taxaTrocaMin, taxaTrocaMax, numeroServidoresFila2, capacidadeFila2, taxaSaidaMin, taxaSaidaMax, tempoPrimeiroCliente, quantAleatorios);
-                filaEmTandem.executar();
+
+                FilaEmTandem filaEmTandem = new FilaEmTandem(numeroServidoresFila1, capacidadeFila1, taxaChegadaMin, taxaChegadaMax, taxaTrocaMin, taxaTrocaMax, numeroServidoresFila2, capacidadeFila2, taxaSaidaMin, taxaSaidaMax, tempoPrimeiroCliente, quantAleatorios);
+                filaEmTandem.iniciar();
 
                 break;
 
