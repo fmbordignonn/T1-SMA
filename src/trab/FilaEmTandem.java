@@ -80,13 +80,6 @@ public class FilaEmTandem {
         return randomNums;
     }
 
-
-
-    //REMOVER O ELEMENTO RANDOM!!!!!!!!!!!
-
-
-
-
     public void executar() {
         filaEventos.add(new Evento(TipoEvento.CHEGADA, tempoPrimeiroCliente));
         totalEventos++;
@@ -110,6 +103,7 @@ public class FilaEmTandem {
         if (temposEstado1.size() <= tamanhoFila1){
             temposEstado1.add(0.0);
         }
+
         if (temposEstado2.size() <= tamanhoFila2){
             temposEstado2.add(0.0);
         }
@@ -121,17 +115,17 @@ public class FilaEmTandem {
 
         if (capacidadeFila1 == 0 || tamanhoFila1 < capacidadeFila1) {
             tamanhoFila1++;
+
             if (tamanhoFila1 <= servidoresFila1 && contAleatorios < quantAleatorios) {
-                numeroAleatorio = (taxaTrocaMax - taxaTrocaMin)* random.nextDouble() + taxaTrocaMin;
-                //numeroAleatorio = (taxaDeTrocaMax - taxaDeTrocaMin) * aleatorios[contAleatorios] + taxaDeTrocaMin;
+                numeroAleatorio = (taxaTrocaMax - taxaTrocaMin) * aleatorios[contAleatorios] + taxaTrocaMin;
                 contAleatorios++;
                 filaEventos.add(new Evento(TipoEvento.TROCA, numeroAleatorio + tempoSimulacao));
                 totalEventos++;
             }
         }
+
         if (contAleatorios < quantAleatorios) {
-            numeroAleatorio = (taxaChegadaMax - taxaChegadaMin)* random.nextDouble() + taxaChegadaMin;
-            //numeroAleatorio = (taxaDeChegadaMax - taxaDeChegadaMin) * aleatorios[contAleatorios] + taxaDeChegadaMin;
+            numeroAleatorio = (taxaChegadaMax - taxaChegadaMin) * aleatorios[contAleatorios] + taxaChegadaMin;
             contAleatorios++;
             filaEventos.add(new Evento(TipoEvento.CHEGADA, numeroAleatorio + tempoSimulacao));
             totalEventos++;
@@ -142,6 +136,7 @@ public class FilaEmTandem {
         if (temposEstado1.size() <= tamanhoFila1){
             temposEstado1.add(0.0);
         }
+
         if (temposEstado2.size() <= tamanhoFila2){
             temposEstado2.add(0.0);
         }
@@ -154,8 +149,7 @@ public class FilaEmTandem {
         tamanhoFila1--;
 
         if (tamanhoFila1 >= servidoresFila1 && contAleatorios < quantAleatorios) {
-            numeroAleatorio = (taxaTrocaMax - taxaTrocaMin) * random.nextDouble() + taxaTrocaMin;
-            //numeroAleatorio = (taxaDeTrocaMax - taxaDeTrocaMin) * aleatorios[contAleatorios] + taxaDeTrocaMin;
+            numeroAleatorio = (taxaTrocaMax - taxaTrocaMin) * aleatorios[contAleatorios] + taxaTrocaMin;
             contAleatorios++;
             filaEventos.add(new Evento(TipoEvento.TROCA, numeroAleatorio + tempoSimulacao));
             totalEventos++;
@@ -163,9 +157,9 @@ public class FilaEmTandem {
 
         if (capacidadeFila2 == 0 || tamanhoFila2 < capacidadeFila2) {
             tamanhoFila2++;
+
             if (tamanhoFila2 <= servidoresFila2 && contAleatorios < quantAleatorios) {
-                numeroAleatorio = (taxaSaidaMax - taxaSaidaMin) * random.nextDouble() + taxaSaidaMin;
-                //numeroAleatorio = (taxaDeSaidaMax - taxaDeSaidaMin) * aleatorios[contAleatorios] + taxaDeSaidaMin;
+                numeroAleatorio = (taxaSaidaMax - taxaSaidaMin) * aleatorios[contAleatorios] + taxaSaidaMin;
                 contAleatorios++;
                 filaEventos.add(new Evento(TipoEvento.SAIDA, numeroAleatorio + tempoSimulacao));
                 totalEventos++;
@@ -177,9 +171,11 @@ public class FilaEmTandem {
         if (temposEstado1.size() <= tamanhoFila1){
             temposEstado1.add(0.0);
         }
+
         if (temposEstado2.size() <= tamanhoFila2){
             temposEstado2.add(0.0);
         }
+
         temposEstado1.set(tamanhoFila1, filaEventos.get(indiceProximaExecucao).getTempo() - tempoSimulacao + temposEstado1.get(tamanhoFila1));
         temposEstado2.set(tamanhoFila2, filaEventos.get(indiceProximaExecucao).getTempo() - tempoSimulacao + temposEstado2.get(tamanhoFila2));
         tempoSimulacao = filaEventos.get(indiceProximaExecucao).getTempo();
@@ -188,8 +184,7 @@ public class FilaEmTandem {
         tamanhoFila2--;
 
         if (tamanhoFila2 >= servidoresFila2 && contAleatorios < quantAleatorios) {
-            numeroAleatorio = (taxaSaidaMax - taxaSaidaMin) * random.nextDouble() + taxaSaidaMin;
-            //numeroAleatorio = (taxaDeSaidaMax - taxaDeSaidaMin) * aleatorios[contAleatorios] + taxaDeSaidaMin;
+            numeroAleatorio = (taxaSaidaMax - taxaSaidaMin) * aleatorios[contAleatorios] + taxaSaidaMin;
             contAleatorios++;
             filaEventos.add(new Evento(TipoEvento.SAIDA , numeroAleatorio + tempoSimulacao));
             totalEventos++;
@@ -212,23 +207,29 @@ public class FilaEmTandem {
         System.out.println("\nTEMPO TOTAL: " + tempoSimulacao);
         System.out.println("\nTAMANHO FINAL DA FILA 1: " + tamanhoFila1);
         System.out.println("\nTEMPO POR ESTADO DA FILA 1: ");
+
         for (int i = 0; i < temposEstado1.size(); i++) {
             System.out.println("Tempo no estado " + i + ": " + temposEstado1.get(i));
         }
+
         System.out.println("\nPROBABILIDADE POR ESTADO NA FILA 1: ");
         for (int i = 0; i < temposEstado1.size() ; i++) {
             System.out.println("Probabilidade no estado " + i + ": " + temposEstado1.get(i) * 100 / tempoSimulacao + "%");
         }
+
         System.out.println("\n\nTAMANHO FINAL DA FILA 2: " + tamanhoFila2);
         System.out.println("\nTEMPO POR ESTADO DA FILA 2: ");
+
         for (int i = 0; i < temposEstado2.size(); i++) {
             System.out.println("Tempo no estado " + i + ": " + temposEstado2.get(i));
         }
 
         System.out.println("\nPROBABILIDADE POR ESTADO NA FILA 2: ");
+
         for (int i = 0; i < temposEstado2.size() ; i++) {
             System.out.println("Probabilidade no estado " + i + ": " + temposEstado2.get(i) * 100 / tempoSimulacao + "%");
         }
+
         System.out.println ("\n\nNUMERO DE EVENTOS EXECUTADOS: " + eventosRealizados);
         System.out.println ("\nNUMERO DE EVENTOS AGENDADOS E NAO EXECUTADOS: " + (totalEventos - eventosRealizados));
     }
